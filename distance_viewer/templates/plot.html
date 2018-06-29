@@ -1,0 +1,93 @@
+<head>
+  <!-- Plotly.js -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <h2>plot</h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <div class='row'>
+        <div class="col-sm-6">
+            <div id="DistancePlot"></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                <th>Classifyer: </th>
+                <td>{{classifyer}}</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <th>bla bla information</th>
+                <td></td> 
+                </tr>
+                <tr>
+                <th>bla bla information</th>
+                <td></td>
+                </tr>
+                <tr>
+                <th>bla bla information</th>
+                <td></td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  
+<script>
+var layout = {
+        title:'cgMLST Distance Plot',
+        hovermode:'closest',
+        autosize: false,
+        width: 500,
+        height: 500,
+        xaxis :{linecolor: 'black',
+                linewidth: 2,
+                mirror: true,
+                showticklabels: false,
+                zeroline: false,
+                showgrid: false,
+                },
+                
+        yaxis :{linecolor: 'black',
+                linewidth: 2,
+                mirror: true,
+                showticklabels: false,
+                zeroline: false,
+                showgrid: false,
+                },};
+
+var trace = {
+    x: {{X}},
+    y: {{Y}},
+    text : {{labes|tojson}},
+    mode: 'markers',
+    type: 'scatter',
+    marker: {
+        size: 10,
+        color: {{colors}} 
+    }
+};
+
+
+var data = [trace];
+
+Plotly.newPlot('DistancePlot', data, layout);
+  </script>
+</body>
